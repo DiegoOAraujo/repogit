@@ -1,47 +1,50 @@
-import React, { Component } from "react";
-import { StyleSheet, View, Text, Image, } from "react-native";
+/* Core */
+import React from 'react';
 
-export default class Repo extends Component{
-    render(){
-        return(
-            <View style={styles.repo}>
-                <Image
-                    style={styles.RepoImage}
-                    source={{ uri: this.props.data.thumbnail }}
-                />
-                <View style={styles.repoInfo}>
-                    <Text style={styles.repoTitle}> {this.props.data.title} </Text>
-                    <Text style={styles.repoAuthor}> {this.props.data.author} </Text>
-                </View>
-            </View>
-        );
-    }
-}
+/* Presentational */
+import { View, Image, Text, StyleSheet } from 'react-native';
 
-const styles=StyleSheet.create({
-    repo:{
-        padding:20,
-        backgroundColor:'#FFF',
-        height:120,
-        marginBottom:20,
-        borderRadius:5,
-        flexDirection: 'row',
-        alignItems:'center',
-      },
-      repoImage:{
-          width:50,
-          height:50,
-          borderRadius:25,
-      },
-      repoInfo:{
-          marginLeft:10,
-      },
-      repoTitle:{
-          fontWeight:'bold',
-          color:'#333',
-      },
-      repoAuthor:{
-          fontSize:12,
-          color:'#999',
-      },
-})
+const Repo = ({ data }) => (
+  <View style={styles.repo}>
+    <Image
+      style={styles.repoImage}
+      source={{ uri: data.thumbnail }}
+    />
+    <View style={styles.repoInfo}>
+      <Text style={styles.repoTitle}>{data.title}</Text>
+      <Text style={styles.repoAuthor}>{data.author}</Text>
+    </View>
+  </View>
+);
+
+const styles = StyleSheet.create({
+  repo: {
+    padding: 20,
+    backgroundColor: '#FFF',
+    marginBottom: 20,
+    borderRadius: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  repoImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+  },
+
+  repoInfo: {
+    marginLeft: 10,
+  },
+
+  repoTitle: {
+    fontWeight: 'bold',
+  },
+
+  repoAuthor: {
+    fontSize: 12,
+    color: '#999',
+  },
+});
+
+export default Repo;
