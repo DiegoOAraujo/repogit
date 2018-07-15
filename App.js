@@ -7,7 +7,6 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import Repo from './components/Repo'
 
 export default class App extends Component<{}> {
 
